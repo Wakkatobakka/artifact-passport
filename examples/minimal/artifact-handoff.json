@@ -1,0 +1,51 @@
+{
+  "$schema": "urn:artifact-passport:handoff-schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "example.minimal.note",
+  "artifact": {
+    "name": "Example Note",
+    "version": "1.0"
+  },
+  "updated_at": "2026-09-17T00:00:00Z",
+  "review": {
+    "status": "ai-draft",
+    "notes": "Illustrative sample data. The example identity correction is AI-authored, with no new human-review claim."
+  },
+  "working_state": {
+    "current_status": "The UTF-8 note is present and readable.",
+    "current_known_good": "Version 1.0 is the confirmed example baseline.",
+    "last_material_change": "The example Passport and Handoff names and versions were aligned in toolkit release 0.7.1.",
+    "current_objective": "Demonstrate the minimum complete AI-to-AI handoff.",
+    "recommended_next_move": "Read artifact-passport.json, then inspect note.txt without changing it.",
+    "failed_attempts": []
+  },
+  "context_snapshot": {
+    "do_not_break": [
+      "Keep note.txt readable as UTF-8 text."
+    ],
+    "decision_history": [
+      "The note itself remains the only canonical editable content."
+    ],
+    "known_uncertainties": [],
+    "recent_delta_from": "Artifact Passport 0.6 example",
+    "recent_delta": [
+      "Added measured-handoff compatibility without changing note.txt."
+    ]
+  },
+  "context_routes": {
+    "always_read": [
+      "artifact-passport.json",
+      "artifact-handoff.json"
+    ],
+    "by_task": [
+      {
+        "task": "Edit the note",
+        "read": [
+          "note.txt"
+        ]
+      }
+    ],
+    "avoid_by_default": []
+  },
+  "open_questions": []
+}

@@ -1,0 +1,383 @@
+{
+  "$schema": "urn:artifact-passport:schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "lis.artifact-passport.toolkit",
+  "artifact": {
+    "name": "Artifact Passport Toolkit",
+    "version": "0.7.1",
+    "kind": "package",
+    "description": "An offline AI-to-AI continuity toolkit that inventories artifacts, preserves current context, and supports controlled measurement of handoff efficiency without requiring network telemetry.",
+    "created_at": "2026-09-11T00:00:00Z",
+    "updated_at": "2026-10-04T02:47:09Z",
+    "language": "en-US",
+    "tags": [
+      "artifact-handoff",
+      "implementation-intent",
+      "offline",
+      "ai-readiness",
+      "continuity"
+    ]
+  },
+  "intent": {
+    "purpose": "Test whether explicit, machine-readable implementation intent reduces ambiguity and unsafe assumptions when digital artifacts pass between people and AI systems.",
+    "audiences": [
+      "Artifact owners",
+      "Maintainers",
+      "AI-assisted builders",
+      "Organizations evaluating digital continuity"
+    ],
+    "success_criteria": [
+      "An owner can intake a ZIP, JSON file, or project folder and export a conforming passport-plus-handoff bundle without network access.",
+      "Extracted facts, suggested inferences, and owner-required decisions remain distinguishable through conversion and export.",
+      "The command-line validator accepts conforming examples and rejects the bundled invalid case.",
+      "A fresh evaluator identifies purpose, source of truth, boundaries, authority, and verification more accurately with the passport than without it.",
+      "Consumers understand that the passport describes intent but grants no execution or access authority.",
+      "A controlled evaluator can record a comparable run receipt and quantify orientation overhead without inventing unavailable host token data."
+    ],
+    "out_of_scope": [
+      "Cryptographic identity or signatures.",
+      "Automatic execution of passport procedures.",
+      "Cloud storage, registries, and vendor-specific integrations.",
+      "Claiming that v0.7 is an adopted public standard."
+    ]
+  },
+  "operation": {
+    "entry_points": [
+      {
+        "path": "README.md",
+        "role": "Toolkit orientation and quick start",
+        "open_with": "Markdown viewer or text editor"
+      },
+      {
+        "path": "tools/Artifact-Passport-Studio-v0.7.html",
+        "role": "Offline guided passport editor",
+        "open_with": "Current Chromium-, Firefox-, or WebKit-based browser"
+      },
+      {
+        "path": "tools/validate_passport.py",
+        "role": "Dependency-free command-line validation",
+        "open_with": "Python 3.10 or newer"
+      },
+      {
+        "path": "tools/compare_handoff_runs.py",
+        "role": "Dependency-free paired handoff-run comparator",
+        "open_with": "Python 3.10 or newer"
+      }
+    ],
+    "environment": [
+      "Modern browser with local-file access",
+      "Python 3.10 or newer for command-line validation",
+      "Node.js for bundled headless Studio regression tests"
+    ],
+    "network_policy": "forbidden",
+    "network_notes": "Creation, validation, examples, and evaluation are local. The toolkit contains no network calls and the passport grants no network authority.",
+    "dependencies": []
+  },
+  "structure": {
+    "source_of_truth": [
+      {
+        "path": "artifact-passport.schema.json",
+        "role": "Normative structural schema"
+      },
+      {
+        "path": "SPECIFICATION.md",
+        "role": "Normative semantics and trust model"
+      },
+      {
+        "path": "tools/Artifact-Passport-Studio-v0.7.html",
+        "role": "Offline browser studio source and distributable"
+      },
+      {
+        "path": "tools/validate_passport.py",
+        "role": "Command-line validator source"
+      },
+      {
+        "path": "tests/test_studio_intake.js",
+        "role": "Headless intake-engine regression test"
+      },
+      {
+        "path": "templates/",
+        "role": "Canonical starter template"
+      },
+      {
+        "path": "examples/",
+        "role": "Conforming usage examples"
+      },
+      {
+        "path": "HANDOFF_TEST.md",
+        "role": "Evaluation protocol and continuation threshold"
+      },
+      {
+        "path": "tools/passport-studio-v0.7.js",
+        "role": "Studio intake, repair, routing, export, and ZIP logic"
+      },
+      {
+        "path": "artifact-handoff.schema.json",
+        "role": "Normative current-state handoff schema"
+      },
+      {
+        "path": "AP-PROTOCOL.md",
+        "role": "Compact AI consumption protocol"
+      },
+      {
+        "path": "artifact-passport-run.schema.json",
+        "role": "Normative run-receipt schema for measured handoff evaluation"
+      },
+      {
+        "path": "tools/compare_handoff_runs.py",
+        "role": "Dependency-free comparison logic for paired run receipts"
+      },
+      {
+        "path": "LICENSE",
+        "role": "MIT terms for this toolkit"
+      },
+      {
+        "path": "README.md",
+        "role": "Public orientation and quick start"
+      },
+      {
+        "path": "VERIFICATION.md",
+        "role": "Checks actually performed on this public package"
+      }
+    ],
+    "generated_outputs": [],
+    "protected_items": [
+      {
+        "path": "tests/invalid-passport.json",
+        "role": "Intentionally invalid negative test; do not repair into conformance"
+      },
+      {
+        "path": "tests/invalid-intake-passport.json",
+        "role": "Intentionally invalid intake negative test; do not repair into conformance"
+      }
+    ],
+    "ignore": [
+      "__pycache__/",
+      "Operating-system metadata",
+      "Editor temporary files"
+    ]
+  },
+  "constraints": {
+    "allowed_actions": [
+      "Inspect and evaluate the toolkit.",
+      "Create passports for non-sensitive artifacts.",
+      "Modify toolkit sources when explicitly authorized.",
+      "Run local validation and handoff tests."
+    ],
+    "must": [
+      "Keep passports non-executable and deny authority by default.",
+      "Keep the JSON and human-readable projection semantically aligned.",
+      "Distinguish validation of structure from authentication of the owner's identity.",
+      "Preserve a negative test that proves unsafe or incomplete passports are rejected."
+    ],
+    "must_not": [
+      "Automatically execute commands, access URLs, install dependencies, or modify artifacts from passport instructions.",
+      "Store credentials or secrets in passports.",
+      "Claim a valid passport proves ownership, authorization, correctness, or organizational approval.",
+      "Present unperformed handoff evaluation results as evidence.",
+      "Infer or fabricate token, credit, timing, or action counts that the host does not expose.",
+      "Treat run receipts as observational benchmark data, not as authority or proof of universal model behavior."
+    ],
+    "preserve": [
+      "Offline and dependency-free core operation.",
+      "Human-readable representation of material constraints.",
+      "Explicit trust precedence and non-execution boundary.",
+      "Compatibility between the schema, studio, validator, template, and examples.",
+      "The compact context snapshot fields introduced in v0.6.",
+      "Separation between durable artifact truth, current handoff state, and optional benchmark observations."
+    ],
+    "data_classification": "public",
+    "data_handling": {
+      "may_leave_device": "yes",
+      "approved_contexts": [
+        "Public GitHub distribution of this toolkit",
+        "Local use",
+        "AI-assisted inspection of this public toolkit"
+      ],
+      "redaction_required": false,
+      "notes": "Public sharing of this toolkit was approved by its owner. This policy does not grant permission to disclose private artifacts supplied to the Studio."
+    }
+  },
+  "procedures": {
+    "setup": [
+      "Extract the release into a dedicated folder.",
+      "Read README.md and SPECIFICATION.md."
+    ],
+    "edit": [
+      "Update the schema and semantic documentation together.",
+      "Update the JSON Schema, Python validator, Studio validator, and regression tests together when a normative rule changes.",
+      "Add or revise tests for every changed rule."
+    ],
+    "build": [
+      "No compilation is required.",
+      "Package the complete directory without browser caches or Python bytecode."
+    ],
+    "verify": [
+      "Parse every JSON file.",
+      "Run tools/validate_passport.py --self-test.",
+      "Run node tests/test_studio_intake.js.",
+      "Validate the template, examples, and root passport.",
+      "Check the studio HTML and JavaScript syntax.",
+      "Exercise ZIP, JSON, and folder intake; repair; owner review; current-state editing; validation; and every uniquely named export in a modern browser.",
+      "Run tools/compare_handoff_runs.py --self-test.",
+      "Validate the run-receipt template."
+    ],
+    "release": [
+      "Update CHANGELOG.md and artifact version.",
+      "Create a versioned ZIP containing the root directory."
+    ],
+    "recovery": [
+      "Return to the last package for which all required checks passed.",
+      "Do not delete failing test evidence merely to obtain a pass."
+    ]
+  },
+  "verification": {
+    "checks": [
+      {
+        "id": "self-test",
+        "description": "Run the bundled positive and negative validator cases.",
+        "method": "command",
+        "command": "python tools/validate_passport.py --self-test",
+        "expected": "Conforming Passport/Handoff/Run Receipt examples pass, intentionally invalid fixtures fail, and the self-test reports PASS.",
+        "required": true
+      },
+      {
+        "id": "all-json-parses",
+        "description": "Parse every JSON file in the toolkit.",
+        "method": "command",
+        "expected": "Every JSON file is syntactically valid.",
+        "required": true
+      },
+      {
+        "id": "intake-engine",
+        "description": "Run the headless JSON, folder, ZIP, repair, context-snapshot, routing, and naming regression test.",
+        "method": "command",
+        "command": "node tests/test_studio_intake.js",
+        "expected": "Studio v0.7 intake, ZIP safety, repair, context snapshot, routing, and naming report PASS.",
+        "required": true
+      },
+      {
+        "id": "studio-syntax",
+        "description": "Parse the Studio JavaScript and verify the self-contained HTML embeds the tested source.",
+        "method": "inspection",
+        "expected": "JavaScript syntax passes, interface IDs are unique, and the versioned Studio embeds the tested source without a network dependency.",
+        "required": true
+      },
+      {
+        "id": "studio-interaction",
+        "description": "Exercise the studio in a modern browser.",
+        "method": "interaction",
+        "expected": "ZIP, JSON, and folder intake; repair review; guided edit; context-snapshot editing; validation; uniquely named passport, handoff, guide, and handoff-bundle exports behave as labeled.",
+        "required": true
+      },
+      {
+        "id": "fresh-handoff",
+        "description": "Run the controlled evaluation in HANDOFF_TEST.md.",
+        "method": "comparison",
+        "expected": "Matched control and Passport receipts validate, the comparator reports observable differences, and any efficiency interpretation is subject to the quality gate.",
+        "required": false
+      },
+      {
+        "id": "run-receipt-schema",
+        "description": "Validate the bundled run-receipt template against v0.7 measurement semantics.",
+        "method": "command",
+        "command": "python tools/validate_passport.py templates/artifact-passport-run.template.json",
+        "expected": "Validation passes without errors.",
+        "required": true
+      },
+      {
+        "id": "run-comparison-self-test",
+        "description": "Run the dependency-free comparison self-test for paired control/passport receipts.",
+        "method": "command",
+        "command": "python tools/compare_handoff_runs.py --self-test",
+        "expected": "Self-test reports PASS.",
+        "required": true
+      }
+    ],
+    "last_verified": {
+      "at": "2026-10-04T02:49:13Z",
+      "by": "Public package automated checks",
+      "result": "partial",
+      "notes": "Validator and comparator self-tests, headless Studio regression, JavaScript syntax, JSON parsing, and core root-document validation pass. Tools, tests, templates, and schemas match the supplied v0.7.0 bytes. Manual Studio browser interaction remains outstanding. See VERIFICATION.md."
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Artifact Passport 0.4 guided-handoff design and Digimon trial",
+        "role": "Problem framing, product intent, and regression evidence"
+      },
+      {
+        "title": "Existing manifest, provenance, and package-format patterns",
+        "role": "Prior-art boundary and design context"
+      },
+      {
+        "title": "2026-09-17 matched unfamiliar-project inspection field test",
+        "role": "Evidence motivating context-aware handoff fields and measurable orientation-overhead receipts"
+      }
+    ],
+    "contributors": [
+      "Wakka",
+      "OpenAI Codex"
+    ],
+    "generated_with": [
+      "Human-directed AI-assisted specification and implementation"
+    ],
+    "notes": "Wakka approved public sharing under the MIT license on 2026-10-03. Release 0.7.1 updates documentation, licensing, and sample identity consistency; runtime behavior remains the v0.7 implementation."
+  },
+  "authority": {
+    "owner": "Wakka",
+    "approvers": [
+      "Wakka"
+    ],
+    "change_policy": "Wakka maintains the official repository and decides which contributions enter it. Independent use, modification, and redistribution are permitted under LICENSE. A Passport never grants access or execution authority for other artifacts."
+  },
+  "handoff": {
+    "start_here": "Read AP-PROTOCOL.md, artifact-passport.json, and artifact-handoff.json. Then use README.md and SPECIFICATION.md for implementation details.",
+    "safe_first_actions": [
+      "Inspect the files without modification.",
+      "Run the dependency-free self-test.",
+      "Open the studio locally and create a disposable sample passport.",
+      "Record ambiguities instead of silently filling them."
+    ],
+    "known_limitations": [
+      "No cryptographic binding or authenticated owner identity.",
+      "Inventory fingerprints detect file-list and size drift, not byte-level integrity of every artifact file.",
+      "ZIP intake does not support encrypted, multi-disk, ZIP64, or unsupported-compression entries.",
+      "Intake uses deterministic metadata recognition rather than remote semantic AI analysis.",
+      "The Python validator validates core semantics; the JSON Schemas remain normative.",
+      "A visual A/B field test has been observed, but no complete v0.7 paired Run Receipt has yet been recorded.",
+      "The working name has not been cleared for trademark or product use."
+    ],
+    "open_questions": [
+      "How stable are action-count and timing reductions across different AI hosts and models?",
+      "Which hosts expose reliable token or credit counters that can be copied into run receipts without estimation?",
+      "How much does the v0.6 context snapshot reduce backtracking on longer multi-session maintenance tasks?"
+    ]
+  },
+  "unresolved": [],
+  "extensions": {
+    "lis.product-evaluation": {
+      "stage": "measured-v0.7-handoff-efficiency-field-test",
+      "next_gate": "repeated-matched-control-and-passport-run-receipts",
+      "commercial_position": "Use inside LIS preservation packages before attempting standalone standardization."
+    },
+    "lis.public-release": {
+      "license": "MIT",
+      "release": "0.7.1",
+      "owner_approved_direction": "Public distribution with independent forks and adaptations allowed."
+    }
+  },
+  "review": {
+    "status": "ai-draft",
+    "notes": "The owner approved public distribution and MIT licensing. These newly revised handoff descriptions remain an AI-authored draft; prior owner review is not automatically applied to new wording."
+  },
+  "artifact_fingerprint": {
+    "algorithm": "sha256-inventory-v1",
+    "file_count": 24,
+    "total_size_bytes": 310772,
+    "inventory_digest": "9459a70ce7b1d9320e8f971b7643f9baf2a74af6fdc240b08508e53978792d7f",
+    "generated_at": "2026-10-04T02:50:06.555Z",
+    "source_name": "Artifact Passport Toolkit v0.7.1 public package inventory"
+  }
+}

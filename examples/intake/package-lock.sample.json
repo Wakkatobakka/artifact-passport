@@ -1,0 +1,22 @@
+{
+  "name": "county-reference-demo",
+  "version": "1.4.2",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "county-reference-demo",
+      "version": "1.4.2",
+      "dependencies": {
+        "pdfjs-dist": "4.10.38",
+        "react": "19.2.0"
+      },
+      "devDependencies": {
+        "vite": "7.1.7"
+      }
+    },
+    "node_modules/react": {
+      "version": "19.2.0"
+    }
+  }
+}

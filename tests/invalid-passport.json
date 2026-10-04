@@ -1,0 +1,81 @@
+{
+  "spec_version": "0.7",
+  "passport_id": "bad",
+  "artifact": {
+    "name": "Unsafe example",
+    "version": "1",
+    "kind": "mystery",
+    "description": "An intentionally invalid test case.",
+    "updated_at": "not-a-date"
+  },
+  "intent": {
+    "purpose": "Exercise validator failures.",
+    "audiences": [],
+    "success_criteria": []
+  },
+  "operation": {
+    "entry_points": [
+      {
+        "path": "../escape.exe",
+        "role": "Bad path",
+        "open_with": "Automatically"
+      }
+    ],
+    "environment": [],
+    "network_policy": "always",
+    "dependencies": []
+  },
+  "structure": {
+    "source_of_truth": [
+      {
+        "path": "same.bin",
+        "role": "Source"
+      }
+    ],
+    "generated_outputs": [
+      {
+        "path": "same.bin",
+        "role": "Output"
+      }
+    ],
+    "protected_items": [],
+    "ignore": []
+  },
+  "constraints": {
+    "allowed_actions": [],
+    "must": [],
+    "must_not": [],
+    "preserve": []
+  },
+  "procedures": {
+    "setup": [],
+    "edit": [],
+    "build": [],
+    "verify": [],
+    "release": [],
+    "recovery": []
+  },
+  "verification": {
+    "checks": [
+      {
+        "id": "duplicate",
+        "description": "Never required",
+        "expected": "Nothing",
+        "required": false
+      }
+    ]
+  },
+  "authority": {
+    "owner": "",
+    "approvers": [],
+    "change_policy": ""
+  },
+  "handoff": {
+    "start_here": "",
+    "safe_first_actions": [],
+    "known_limitations": [],
+    "open_questions": []
+  },
+  "api_key": "this-field-is-prohibited",
+  "$schema": "urn:artifact-passport:schema:0.7"
+}

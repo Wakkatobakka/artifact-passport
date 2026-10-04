@@ -1,0 +1,57 @@
+{
+  "$schema": "urn:artifact-passport:run-schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "replace.with.stable.id",
+  "artifact": {
+    "name": "Replace with artifact name",
+    "version": "Replace with artifact version"
+  },
+  "condition": "passport",
+  "prompt_id": "handoff-test-v0.7-orientation",
+  "artifact_inventory_digest": null,
+  "evaluator": {
+    "host": "Replace with host",
+    "model": "Replace with model",
+    "reasoning_mode": "",
+    "tool_surface": ""
+  },
+  "timing": {
+    "started_at": "2026-01-01T00:00:00Z",
+    "completed_at": "2026-01-01T00:00:00Z",
+    "source": "unavailable",
+    "time_to_usable_model_ms": null,
+    "time_to_first_verified_claim_ms": null,
+    "total_runtime_ms": null
+  },
+  "work": {
+    "orientation_actions": 0,
+    "verification_actions": 0,
+    "other_actions": 0,
+    "total_tool_actions": 0,
+    "unique_files_read": 0,
+    "unnecessary_file_reads": 0
+  },
+  "result": {
+    "usable_project_model": false,
+    "claims_verified": 0,
+    "contradictions_found": 0,
+    "incorrect_assumptions": 0,
+    "clarification_loops": 0,
+    "backtracking_events": 0,
+    "unsafe_actions_proposed": 0,
+    "rubric_score": null,
+    "rubric_max": null,
+    "notes": "Replace placeholder values with observations from one completed evaluation run. Do not estimate host usage that was not exposed."
+  },
+  "host_usage": {
+    "status": "not-recorded",
+    "input_tokens": null,
+    "cached_input_tokens": null,
+    "output_tokens": null,
+    "reasoning_tokens": null,
+    "total_tokens": null,
+    "credits": null,
+    "source": ""
+  },
+  "notes": "This receipt is observational benchmark data. It grants no authority and is not part of the artifact's durable truth."
+}

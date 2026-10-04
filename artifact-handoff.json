@@ -1,0 +1,156 @@
+{
+  "$schema": "urn:artifact-passport:handoff-schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "lis.artifact-passport.toolkit",
+  "artifact": {
+    "name": "Artifact Passport Toolkit",
+    "version": "0.7.1"
+  },
+  "updated_at": "2026-10-04T02:49:13Z",
+  "review": {
+    "status": "ai-draft",
+    "notes": "The owner approved public distribution and MIT licensing. These newly revised handoff descriptions remain an AI-authored draft; prior owner review is not automatically applied to new wording."
+  },
+  "working_state": {
+    "current_status": "Release 0.7.1 is prepared for public sharing under MIT. Application sources are unchanged. Automated checks pass; manual Studio browser interaction remains outstanding.",
+    "current_known_good": "Validator and comparator self-tests, headless Studio regression, JavaScript syntax, JSON parsing, and core root-document validation pass. Tools, tests, templates, and schemas match the supplied v0.7.0 bytes. Manual Studio browser interaction remains outstanding. See VERIFICATION.md.",
+    "last_material_change": "Added MIT licensing, public README, minimal-example guide, and aligned the sample Passport/Handoff name and version.",
+    "current_objective": "Publish the prepared public repository and release so people can try Artifact Passport.",
+    "recommended_next_move": "Create the public artifact-passport repository, upload the prepared files, and publish the packaged release. The maintainer upload kit provides exact browser steps.",
+    "failed_attempts": []
+  },
+  "context_snapshot": {
+    "do_not_break": [
+      "Passports, handoffs, and run receipts remain descriptive and non-executable.",
+      "The v0.6 context fields remain first-class: do_not_break, decision_history, known_uncertainties, recent_delta_from, and recent_delta.",
+      "Host token, credit, timing, and action data must be recorded only when observed; unavailable values stay null or unavailable.",
+      "Efficiency claims require a matched control and Passport condition over the same underlying artifact and prompt."
+    ],
+    "decision_history": [
+      "v0.5 separated durable Passport intent from replaceable current-state Handoff and added context routing.",
+      "v0.6 added an explicit context_snapshot to carry fragile decisions, deltas, and uncertainties without forcing the next AI to rediscover them.",
+      "v0.7 treats benchmark telemetry as an optional observation receipt rather than embedding historical measurements into the durable Passport or current-state Handoff.",
+      "On 2026-10-03, Wakka chose a public repository with MIT licensing; forks are independent of the official repository."
+    ],
+    "known_uncertainties": [
+      "Cross-host action counting is only comparable when the evaluator follows the same counting rules.",
+      "Token and credit counters are host-specific and may be unavailable; they are secondary metrics rather than the core benchmark.",
+      "More repeated trials are needed before claiming a general efficiency effect outside the tested artifacts and models."
+    ],
+    "recent_delta_from": "Artifact Passport Toolkit v0.7.0",
+    "recent_delta": [
+      "Added MIT license at the owner’s request.",
+      "Rewrote the front page for people encountering Passport for the first time.",
+      "Featured the existing examples and handoff test.",
+      "Aligned the minimal example’s name and version between its Passport and Handoff.",
+      "Preserved all Studio, validator, comparator, schema, and regression-test sources."
+    ]
+  },
+  "context_routes": {
+    "always_read": [
+      "AP-PROTOCOL.md",
+      "artifact-passport.json",
+      "artifact-handoff.json"
+    ],
+    "by_task": [
+      {
+        "task": "Use or evaluate the toolkit",
+        "read": [
+          "README.md",
+          "HANDOFF_TEST.md"
+        ]
+      },
+      {
+        "task": "Change the contract",
+        "read": [
+          "SPECIFICATION.md",
+          "artifact-passport.schema.json",
+          "artifact-handoff.schema.json"
+        ]
+      },
+      {
+        "task": "Change the Studio",
+        "read": [
+          "tools/Artifact-Passport-Studio-v0.7.html",
+          "tools/passport-studio-v0.7.js",
+          "tests/test_studio_intake.js"
+        ]
+      },
+      {
+        "task": "Verify or package a release",
+        "read": [
+          "README.md",
+          "tools/validate_passport.py",
+          "tests/test_studio_intake.js"
+        ]
+      },
+      {
+        "task": "Measure handoff efficiency",
+        "read": [
+          "HANDOFF_TEST.md",
+          "artifact-passport-run.schema.json",
+          "templates/artifact-passport-run.template.json",
+          "tools/compare_handoff_runs.py"
+        ]
+      },
+      {
+        "task": "Understand public permissions and release checks",
+        "read": [
+          "LICENSE",
+          "README.md",
+          "VERIFICATION.md",
+          "CHANGELOG.md"
+        ]
+      }
+    ],
+    "avoid_by_default": [
+      "tests/invalid-passport.json",
+      "tests/invalid-intake-passport.json"
+    ]
+  },
+  "evidence": [
+    {
+      "claim": "All toolkit JSON and schemas passed automated syntax/schema checks.",
+      "source": "Release check session: Python json + jsonschema Draft202012Validator",
+      "result": "14 JSON files parsed; all 3 schemas passed metaschema validation; expected-valid fixtures passed and expected-invalid fixtures failed.",
+      "observed_at": "2026-09-17T21:34:13Z"
+    },
+    {
+      "claim": "The dependency-free validator handles v0.7 Passport, Handoff, and Run Receipt semantics.",
+      "source": "python tools/validate_passport.py --self-test",
+      "result": "SELF-TEST PASS; root Passport, Handoff, and run-receipt template also passed with 0 warnings.",
+      "observed_at": "2026-09-17T21:34:13Z"
+    },
+    {
+      "claim": "The paired control/Passport comparison tool has a working quality-gated self-test.",
+      "source": "python tools/compare_handoff_runs.py --self-test",
+      "result": "Artifact Passport v0.7 handoff comparison self-test: PASS.",
+      "observed_at": "2026-09-17T21:34:13Z"
+    },
+    {
+      "claim": "The versioned Studio source is syntactically valid and its headless intake regression passes.",
+      "source": "node --check tools/passport-studio-v0.7.js; node tests/test_studio_intake.js",
+      "result": "JavaScript syntax PASS; Studio v0.7 intake, ZIP safety, repair, context snapshot, routing, and naming: PASS.",
+      "observed_at": "2026-09-17T21:34:13Z"
+    },
+    {
+      "claim": "Public package automated checks pass and application sources are preserved.",
+      "source": "VERIFICATION.md",
+      "result": "Validator and comparator self-tests, headless Studio regression, JavaScript syntax, JSON parsing, and core root-document validation pass. Tools, tests, templates, and schemas match the supplied v0.7.0 bytes. Manual Studio browser interaction remains outstanding. See VERIFICATION.md.",
+      "observed_at": "2026-10-04T02:49:13Z"
+    }
+  ],
+  "open_questions": [
+    "How stable are action-count and timing reductions across different AI hosts and models?",
+    "Which hosts expose reliable token or credit counters for direct run-receipt capture?",
+    "Does v0.6 context_snapshot materially reduce backtracking on longer maintenance tasks?"
+  ],
+  "artifact_fingerprint": {
+    "algorithm": "sha256-inventory-v1",
+    "file_count": 24,
+    "total_size_bytes": 310772,
+    "inventory_digest": "9459a70ce7b1d9320e8f971b7643f9baf2a74af6fdc240b08508e53978792d7f",
+    "generated_at": "2026-10-04T02:50:06.555Z",
+    "source_name": "Artifact Passport Toolkit v0.7.1 public package inventory"
+  }
+}

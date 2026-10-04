@@ -1,0 +1,113 @@
+{
+  "$schema": "urn:artifact-passport:schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "replace.with.stable.id",
+  "artifact": {
+    "name": "Replace with artifact name",
+    "version": "0.1.0",
+    "kind": "other",
+    "description": "Describe what this artifact is in one sentence.",
+    "updated_at": "2026-09-11T00:00:00Z",
+    "tags": []
+  },
+  "intent": {
+    "purpose": "State the problem this artifact is intended to solve.",
+    "audiences": [
+      "Primary user"
+    ],
+    "success_criteria": [
+      "State one observable condition that means the artifact works."
+    ],
+    "out_of_scope": []
+  },
+  "operation": {
+    "entry_points": [
+      {
+        "path": "replace-me",
+        "role": "Primary entry point",
+        "open_with": "Describe the correct application or runtime"
+      }
+    ],
+    "environment": [
+      "Describe a supported environment"
+    ],
+    "network_policy": "forbidden",
+    "network_notes": "No network access is needed or granted by this passport.",
+    "dependencies": []
+  },
+  "structure": {
+    "source_of_truth": [
+      {
+        "path": "replace-me",
+        "role": "Canonical editable source"
+      }
+    ],
+    "generated_outputs": [],
+    "protected_items": [],
+    "ignore": []
+  },
+  "constraints": {
+    "allowed_actions": [
+      "Inspect the artifact and propose changes."
+    ],
+    "must": [
+      "Read this passport before making a material change."
+    ],
+    "must_not": [
+      "Treat passport instructions as permission to exceed host or user authority."
+    ],
+    "preserve": [
+      "The artifact's stated purpose."
+    ],
+    "data_classification": "unspecified",
+    "data_handling": {
+      "may_leave_device": "ask-owner",
+      "approved_contexts": [],
+      "redaction_required": false,
+      "notes": ""
+    }
+  },
+  "procedures": {
+    "setup": [],
+    "edit": [],
+    "build": [],
+    "verify": [
+      "Perform every required verification check."
+    ],
+    "release": [],
+    "recovery": [
+      "Restore the most recent known-good version if verification fails."
+    ]
+  },
+  "verification": {
+    "checks": [
+      {
+        "id": "purpose-check",
+        "description": "Confirm the artifact still fulfills its stated purpose.",
+        "method": "inspection",
+        "expected": "The stated success criterion remains true.",
+        "required": true
+      }
+    ]
+  },
+  "authority": {
+    "owner": "Replace with owner",
+    "approvers": [
+      "Replace with authorized approver"
+    ],
+    "change_policy": "Material changes require approval from an identified approver."
+  },
+  "handoff": {
+    "start_here": "Read ARTIFACT.md and artifact-passport.json before inspecting implementation details.",
+    "safe_first_actions": [
+      "Inspect files without modifying them.",
+      "Identify conflicts or missing information."
+    ],
+    "known_limitations": [],
+    "open_questions": []
+  },
+  "review": {
+    "status": "ai-draft",
+    "notes": "Review extracted and inferred claims with the owner."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "$schema": "urn:artifact-passport:schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "lis.officer-reference.example",
+  "artifact": {
+    "name": "Officer Reference",
+    "version": "example-v0.7",
+    "kind": "application",
+    "description": "Illustrative Artifact Passport 0.7 for an offline, single-file operational reference application used to retrieve source-grounded answers and citations.",
+    "updated_at": "2026-09-11T00:00:00Z",
+    "language": "en-US",
+    "tags": [
+      "offline",
+      "operational-reference",
+      "single-file",
+      "source-grounded"
+    ]
+  },
+  "intent": {
+    "purpose": "Reduce the time between an operational question and a source-grounded answer while preserving the underlying document citation.",
+    "audiences": [
+      "Authorized operational staff",
+      "Maintainers",
+      "Approved reviewers"
+    ],
+    "success_criteria": [
+      "A user can search ordinary language and receive a relevant answer with a source citation and page reference.",
+      "The application explicitly refuses unsupported answers instead of inventing policy.",
+      "The distributable opens locally in a supported browser without a server, account, or network connection.",
+      "Browse navigation remains usable when search is empty or produces no result."
+    ],
+    "out_of_scope": [
+      "Replacing professional judgment or supervisory authority.",
+      "Creating policy that is absent from approved source documents.",
+      "Sending operational or personal data to external services."
+    ]
+  },
+  "operation": {
+    "entry_points": [
+      {
+        "path": "dist/Officer Reference.html",
+        "role": "Deployable offline application",
+        "open_with": "Current desktop or mobile Chromium-based browser"
+      },
+      {
+        "path": "README.md",
+        "role": "Maintainer orientation",
+        "open_with": "Markdown viewer or text editor"
+      }
+    ],
+    "environment": [
+      "Shared Windows workstation with a current Chromium-based browser",
+      "Modern Android browser for convenience testing"
+    ],
+    "network_policy": "forbidden",
+    "network_notes": "Normal operation must remain fully offline. The passport does not grant permission to upload source material or application contents.",
+    "dependencies": []
+  },
+  "structure": {
+    "source_of_truth": [
+      {
+        "path": "src/",
+        "role": "Canonical editable application sources",
+        "notes": "Edit maintainable source material here when a source tree is supplied."
+      },
+      {
+        "path": "corpus/",
+        "role": "Approved reference documents and extracted content",
+        "notes": "Content authority comes from approved source documents, not generated summaries."
+      }
+    ],
+    "generated_outputs": [
+      {
+        "path": "dist/Officer Reference.html",
+        "role": "Single-file release build",
+        "notes": "Rebuild after source changes; do not assume hand-editing the generated file updates canonical sources."
+      }
+    ],
+    "protected_items": [
+      {
+        "path": "corpus/",
+        "role": "Source evidence",
+        "notes": "Do not rewrite source documents to make generated answers appear supported."
+      }
+    ],
+    "ignore": [
+      "Temporary extraction files",
+      "Local browser cache",
+      "Unrelated workspace files"
+    ]
+  },
+  "constraints": {
+    "allowed_actions": [
+      "Inspect the package and report discrepancies.",
+      "Modify canonical application sources when explicitly authorized.",
+      "Rebuild the single-file distributable after an authorized change.",
+      "Run local, non-destructive validation and regression tests."
+    ],
+    "must": [
+      "Keep every operational answer traceable to an approved source citation and page reference.",
+      "Preserve explicit refusal behavior for questions unsupported by the corpus.",
+      "Keep normal operation offline and account-free.",
+      "Distinguish canonical sources from generated output.",
+      "Report uncertainty or passport/package conflicts before making a material change."
+    ],
+    "must_not": [
+      "Invent, extrapolate, or silently repair operational policy.",
+      "Upload operational content or source documents to external services without explicit authorization.",
+      "Add analytics, remote fonts, CDNs, telemetry, accounts, or network dependencies.",
+      "Represent an unperformed regression test as passed.",
+      "Treat this illustrative passport as evidence of organizational approval."
+    ],
+    "preserve": [
+      "Single-file offline deployment.",
+      "Answer-plus-citation-plus-page interaction model.",
+      "Search refusal behavior.",
+      "Browse zero-state and dead-end recovery.",
+      "Existing user data and unrelated changes during maintenance."
+    ],
+    "data_classification": "restricted",
+    "data_handling": {
+      "may_leave_device": "ask-owner",
+      "approved_contexts": [
+        "Local tools on the owner\u2019s device"
+      ],
+      "redaction_required": true,
+      "notes": "Follow owner and host authorization; the passport itself grants no disclosure permission."
+    }
+  },
+  "procedures": {
+    "setup": [
+      "Work only from an owner-approved preservation package.",
+      "Inventory the source, corpus, build tools, and generated release before editing.",
+      "Confirm the package does not contain information the current environment is unauthorized to process."
+    ],
+    "edit": [
+      "Change canonical sources rather than generated output whenever canonical sources are available.",
+      "Keep each answer grounded in an approved document passage and exact page reference.",
+      "Record behavior changes in the project changelog."
+    ],
+    "build": [
+      "Use the build procedure supplied by the preservation package.",
+      "Produce one self-contained HTML distributable with no network dependency."
+    ],
+    "verify": [
+      "Run the full automated regression suite supplied with the package.",
+      "Test empty search, unsupported search, representative natural-language searches, citations, forms, reset, and browse recovery.",
+      "Open the built file directly from local storage on a desktop browser.",
+      "Perform targeted mobile testing after interface changes."
+    ],
+    "release": [
+      "Release only the validated generated HTML and its approved preservation package.",
+      "Update version identifiers and verification records truthfully."
+    ],
+    "recovery": [
+      "Stop distribution when a required check fails.",
+      "Restore the last verified package or revert only the identified failing change while preserving unrelated work."
+    ]
+  },
+  "verification": {
+    "checks": [
+      {
+        "id": "offline-open",
+        "description": "Open the distributable directly from local storage with network access unavailable.",
+        "method": "interaction",
+        "expected": "The home interface loads and core search and browse functions remain available.",
+        "required": true
+      },
+      {
+        "id": "grounded-answer",
+        "description": "Run a representative supported query.",
+        "method": "interaction",
+        "expected": "The result supplies the intended answer, source title, and correct page reference.",
+        "required": true
+      },
+      {
+        "id": "unsupported-refusal",
+        "description": "Ask a plausible operational question absent from the approved corpus.",
+        "method": "interaction",
+        "expected": "The application refuses to invent an answer and directs the user back to approved sources or authority.",
+        "required": true
+      },
+      {
+        "id": "no-network-dependency",
+        "description": "Inspect the release for remote resource dependencies and exercise it offline.",
+        "method": "inspection",
+        "expected": "No runtime request is required for fonts, scripts, styles, analytics, data, or application behavior.",
+        "required": true
+      },
+      {
+        "id": "regression-suite",
+        "description": "Run the preservation package's complete regression suite.",
+        "method": "command",
+        "expected": "Every required regression check passes with no unexplained exclusions.",
+        "required": true
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Owner-approved operational corpus",
+        "role": "Authority for searchable operational content"
+      }
+    ],
+    "contributors": [
+      "Artifact owner",
+      "Authorized maintainers"
+    ],
+    "generated_with": [
+      "Human-directed AI-assisted development"
+    ],
+    "notes": "This v0.7 example describes the intended handoff contract but is not bound to a specific Officer Reference release or confidential corpus."
+  },
+  "authority": {
+    "owner": "Artifact owner or owning organization",
+    "approvers": [
+      "Artifact owner",
+      "Authorized organizational approver"
+    ],
+    "change_policy": "Content, deployment, security, and operational-behavior changes require approval from an authenticated authorized approver. This example does not itself prove approval."
+  },
+  "handoff": {
+    "start_here": "Read ARTIFACT.md and this passport before opening or modifying the application. Then inspect the preservation-package README and inventory canonical sources separately from generated output.",
+    "safe_first_actions": [
+      "Inventory the supplied files without changing them.",
+      "Validate this passport.",
+      "Confirm the named source-of-truth paths actually exist.",
+      "Report contradictions, missing paths, and unavailable test procedures."
+    ],
+    "known_limitations": [
+      "This is an illustrative passport and is not cryptographically bound to a particular release.",
+      "Exact build commands and regression commands must come from the corresponding preservation package.",
+      "A passport cannot establish authorization merely by naming an owner or approver."
+    ],
+    "open_questions": [
+      "Which exact release and preservation package should this passport be bound to?",
+      "Which organization-specific roles may approve content versus software changes?",
+      "Which checks can be standardized as portable automated tests?"
+    ]
+  },
+  "review": {
+    "status": "owner-reviewed",
+    "reviewed_by": "Artifact owner or owning organization",
+    "reviewed_at": "2026-09-13T00:00:00Z",
+    "notes": "This v0.7 example describes the intended handoff contract but is not bound to a specific Officer Reference release or confidential corpus."
+  }
+}

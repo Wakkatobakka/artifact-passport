@@ -1,0 +1,1 @@
+Artifact Passport separates what a file contains from how its owner intends it to live.

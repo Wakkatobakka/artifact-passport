@@ -1,0 +1,116 @@
+{
+  "$schema": "urn:artifact-passport:schema:0.7",
+  "spec_version": "0.7",
+  "passport_id": "example.minimal.note",
+  "artifact": {
+    "name": "Example Note",
+    "version": "1.0",
+    "kind": "document",
+    "description": "A minimal conforming Artifact Passport 0.7 example.",
+    "updated_at": "2026-09-17T00:00:00Z"
+  },
+  "intent": {
+    "purpose": "Demonstrate the smallest practical passport.",
+    "audiences": [
+      "Artifact Passport evaluators"
+    ],
+    "success_criteria": [
+      "A conforming validator accepts this file."
+    ]
+  },
+  "operation": {
+    "entry_points": [
+      {
+        "path": "note.txt",
+        "role": "Primary content",
+        "open_with": "Plain-text editor"
+      }
+    ],
+    "environment": [
+      "Any system capable of reading UTF-8 text"
+    ],
+    "network_policy": "forbidden",
+    "dependencies": []
+  },
+  "structure": {
+    "source_of_truth": [
+      {
+        "path": "note.txt",
+        "role": "Canonical note"
+      }
+    ],
+    "generated_outputs": [],
+    "protected_items": [],
+    "ignore": []
+  },
+  "constraints": {
+    "allowed_actions": [
+      "Read and edit note.txt when authorized."
+    ],
+    "must": [
+      "Keep the note readable as UTF-8 text."
+    ],
+    "must_not": [
+      "Treat this passport as execution authority."
+    ],
+    "preserve": [
+      "The note's intended meaning."
+    ],
+    "data_handling": {
+      "may_leave_device": "ask-owner",
+      "approved_contexts": [
+        "Local tools on the owner\u2019s device"
+      ],
+      "redaction_required": false,
+      "notes": "Follow owner and host authorization; the passport itself grants no disclosure permission."
+    }
+  },
+  "procedures": {
+    "setup": [],
+    "edit": [
+      "Edit note.txt directly."
+    ],
+    "build": [],
+    "verify": [
+      "Open note.txt in a plain-text editor."
+    ],
+    "release": [
+      "Keep the passport beside note.txt."
+    ],
+    "recovery": [
+      "Restore the previous known-good note."
+    ]
+  },
+  "verification": {
+    "checks": [
+      {
+        "id": "readable",
+        "description": "Open the note as UTF-8 text.",
+        "method": "inspection",
+        "expected": "The note opens without decoding errors.",
+        "required": true
+      }
+    ]
+  },
+  "authority": {
+    "owner": "Example owner",
+    "approvers": [
+      "Example owner"
+    ],
+    "change_policy": "The owner approves material changes."
+  },
+  "handoff": {
+    "start_here": "Read this passport, then open note.txt.",
+    "safe_first_actions": [
+      "Inspect both files without modification."
+    ],
+    "known_limitations": [],
+    "open_questions": []
+  },
+  "review": {
+    "status": "owner-reviewed",
+    "reviewed_by": "Example owner",
+    "reviewed_at": "2026-09-17T00:00:00Z",
+    "notes": "Example reviewed for the v0.7 specification."
+  }
+}
