@@ -1,3 +1,5 @@
+![Artifact Passport](artifact-passport-banner.jpg)
+
 # Artifact Passport
 
 **Carry a project's purpose, decisions, and current working state into the next AI conversation.**
@@ -7,6 +9,17 @@ Moving a project into a fresh chat often means explaining it again: which files 
 Created by **Wakka** through directing, testing, and iterating with AI. This is an experimental toolkit developed around practical project handoffs.
 
 **Release:** 0.7.1 · **Format:** 0.7 · **License:** [MIT](LICENSE) · **Operation:** offline
+
+## Who it's for
+
+Artifact Passport is for people who need to carry a project's working context forward without rebuilding that context from scratch.
+
+It is especially useful when:
+
+- moving an active project into a fresh AI conversation
+- handing work from one person or AI environment to another
+- preserving what currently works, what failed, and what must not regress
+- keeping project identity, state, and decisions beside the files themselves
 
 ## Try it
 
