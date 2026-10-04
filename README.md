@@ -33,6 +33,12 @@ It is especially useful when:
 
 The Studio runs locally without an account, API key, installation, or paid service. The optional command-line tools require Python; you do not need them to use the Studio.
 
+### Artifact Passport Studio
+
+![Artifact Passport Studio](artifact-passport-studio.png)
+
+The Studio provides a local interface for reviewing project identity, current state, unresolved questions, and handoff information before exporting the bundle.
+
 Local intake does not upload your files. If you later attach the project or handoff to an AI service, you are choosing to share those files with that service. Review what you include and keep credentials out of handoffs.
 
 ## What travels with the project
